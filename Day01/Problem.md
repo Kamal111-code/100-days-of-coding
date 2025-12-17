@@ -28,6 +28,7 @@ s consists of English letters, digits, symbols and spaces.
 
 
 #Solution
+
 Brute force approach:
  We will use a hash array to store the frequenct of characters. If frequency > 1 then Break.
 
