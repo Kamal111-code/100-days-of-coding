@@ -1,36 +1,50 @@
-# Longest Substring with no repeating Characters
-Problem statement:
+# Longest Substring Without Repeating Characters
 
-Given a string s, find the length of the longest substring without duplicate characters.
+## Problem Statement
+Given a string `s`, find the length of the longest substring that contains no repeating characters.
 
-Example 1:
+## Examples
+**Input:** `s = "abcabcbb"`  
+**Output:** `3`  
+**Explanation:** The longest substring is `"abc"`.
 
-Input: s = "abcabcbb"
-Output: 3
-Explanation: The answer is "abc", with the length of 3. Note that "bca" and "cab" are also correct answers.
-Example 2:
+**Input:** `s = "bbbbb"`  
+**Output:** `1`  
+**Explanation:** The longest substring is `"b"`.
 
-Input: s = "bbbbb"
-Output: 1
-Explanation: The answer is "b", with the length of 1.
-Example 3:
+**Input:** `s = "pwwkew"`  
+**Output:** `3`  
+**Explanation:** The longest substring is `"wke"`.
 
-Input: s = "pwwkew"
-Output: 3
-Explanation: The answer is "wke", with the length of 3.
-Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
- 
+## Constraints
+- `0 <= s.length <= 5 * 10^4`
+- `s` consists of English letters, digits, symbols, and spaces
 
-Constraints:
+---
 
-0 <= s.length <= 5 * 104
-s consists of English letters, digits, symbols and spaces.
+## Approach
 
+### 1. Brute Force (Not Optimal)
+- Check all possible substrings
+- Use a set or array to track character frequency
+- Stop when a duplicate is found
 
-#Solution
+**Time Complexity:** `O(n^2)`  
+**Space Complexity:** `O(n)`
 
-Brute force approach:
- We will use a hash array to store the frequenct of characters. If frequency > 1 then Break.
+---
 
-Sliding window approach:
-We initially take l=0,r=0 and then move r as long as it does not break our condition. If our condition breaks then we move l
+### 2. Sliding Window (Optimal)
+- Use two pointers `left` and `right`
+- Expand the window by moving `right`
+- Use a HashSet/HashMap to track characters
+- When a duplicate is found, shrink the window from the left
+- Track the maximum window size
+
+**Time Complexity:** `O(n)`  
+**Space Complexity:** `O(n)`
+
+---
+
+## Key Learning
+Using the sliding window technique avoids rechecking characters and reduces time complexity from `O(n^2)` to `O(n)`.
