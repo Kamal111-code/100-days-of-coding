@@ -67,7 +67,26 @@ For any window of size `k`:
   → their contribution becomes `prices[i]`
 
 So for each window, we compute:
+gain = modified_window_profit − original_window_profit
 
 
+---
+
+### Step 3: Sliding Window Optimization
+- Use a sliding window of size `k` to efficiently track:
+  - Original profit of the window
+  - Modified profit of the window
+- As the window slides:
+  - Add the contribution of the entering element
+  - Remove the contribution of the leaving element
+- Track the **maximum gain** achievable across all windows
+
+---
+
+### Step 4: Final Answer
+maximum_profit = original_profit + maximum_gain
+
+
+If no modification improves the profit, the original strategy is optimal.
 
 
