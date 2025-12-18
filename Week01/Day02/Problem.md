@@ -42,30 +42,32 @@ Maximum profit is **10**.
 
 ---
 
-### Example 2
-**Input**
-prices = [5, 4, 3]
-strategy = [1, 1, 0]
-k = 2
-**Output**
-9
+## Approach
 
-**Explanation**
+### Key Observation
+The profit contribution of each day is:
 
-| Strategy          | Profit Calculation                         | Profit |
-|-------------------|---------------------------------------------|--------|
-| Original           | (1×5) + (1×4) + (0×3)                      | 9      |
-| Modify [0,1]       | (0×5) + (1×4) + (0×3)                      | 4      |
-| Modify [1,2]       | (1×5) + (0×4) + (1×3)                      | 8      |
+profit[i] = strategy[i] × prices[i]
 
-Maximum profit is **9**, achieved without modification.
+Since only **one contiguous subarray of length `k`** can be modified, we focus on calculating the **profit change (delta)** caused by applying the modification to that subarray.
 
-## Constraints
-- `2 ≤ prices.length = strategy.length ≤ 10^5`
-- `1 ≤ prices[i] ≤ 10^5`
-- `-1 ≤ strategy[i] ≤ 1`
-- `2 ≤ k ≤ prices.length`
-- `k` is even
+---
+
+### Step 1: Compute Original Profit
+- Calculate the total profit using the original strategy.
+- Also store each day's individual contribution.
+
+---
+
+### Step 2: Evaluate the Effect of a Modification
+For any window of size `k`:
+- The **first `k/2` days** are forced to `hold (0)`  
+  → their contribution becomes `0`
+- The **last `k/2` days** are forced to `sell (1)`  
+  → their contribution becomes `prices[i]`
+
+So for each window, we compute:
+
 
 
 
