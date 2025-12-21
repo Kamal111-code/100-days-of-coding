@@ -8,10 +8,10 @@ Suppose we chose a set of deletion indices answer such that after deletions, the
 
  
 
-Example 1:
+### Example 1:
 
-Input: strs = ["ca","bb","ac"]
-Output: 1
+### Input: strs = ["ca","bb","ac"]
+### Output: 1
 Explanation: 
 After deleting the first column, strs = ["a", "b", "c"].
 Now strs is in lexicographic order (ie. strs[0] <= strs[1] <= strs[2]).
