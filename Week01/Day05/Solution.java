@@ -4,7 +4,7 @@ class Solution {
         int m = strs[0].length();
         
         boolean[] sorted = new boolean[n - 1];
-        int deletions = 0;
+        int deletion = 0;
 
         for (int col = 0; col < m; col++) {
             boolean needDelete = false;
@@ -17,7 +17,7 @@ class Solution {
             }
 
             if (needDelete) {
-                deletions++;
+                deletion++;
                 continue;
             }
 
@@ -28,6 +28,6 @@ class Solution {
             }
         }
 
-        return deletions;
+        return deletion;
     }
 }
