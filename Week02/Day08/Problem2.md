@@ -1,0 +1,67 @@
+# Two Sum
+
+## Problem Statement
+
+Given an array of integers `nums` and an integer `target`, return the indices of the two numbers such that they add up to `target`.
+
+- Each input has **exactly one solution**
+- You may **not use the same element twice**
+- The answer can be returned in **any order**
+
+---
+
+## Example
+
+**Input**
+nums = [2,7,11,15], target = 9
+
+**Output**
+[0,1]
+
+
+**Explanation**
+
+`nums[0] + nums[1] = 2 + 7 = 9`
+
+---
+
+## Approach
+
+We use a **HashMap** to store numbers we have already seen along with their indices.
+
+### Key Idea
+- For every number `num`, compute its complement:  
+  `complement = target - num`
+- If the complement exists in the map, we have found the answer
+- Otherwise, store the current number with its index
+
+This allows solving the problem in a **single pass**.
+
+### Steps
+1. Initialize a `HashMap<Integer, Integer>`  
+2. Iterate through the array
+3. For each element:
+   - Check if `(target - nums[i])` exists in the map
+   - If yes, return the indices
+   - Else, store `nums[i]` with index `i`
+
+---
+
+## Code (Java)
+
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> pairIdx = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+            if (pairIdx.containsKey(target - num)) {
+                return new int[] { i, pairIdx.get(target - num) };
+            }
+            pairIdx.put(num, i);
+        }
+
+        return new int[] {};
+    }
+}
