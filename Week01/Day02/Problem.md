@@ -1,4 +1,4 @@
-# Maximum Profit with One Strategy Modification
+# Best Time to Buy and Sell Stock using Strategy
 
 ## Problem Statement
 You are given two integer arrays `prices` and `strategy` of equal length `n`.
