@@ -1,4 +1,4 @@
-### Minimum Number of Operations to Have Distinct Elements
+# Minimum Number of Operations to Have Distinct Elements
 
 You are given an array of n strings strs, all of the same length.
 
